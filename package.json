@@ -1,0 +1,18 @@
+{
+  "name": "proton-vpn",
+  "version": "1.0.0",
+  "description": "Proton | VPN",
+  "main": "index.html",
+  "scripts": {
+    "build": "npx tailwindcss -i ./src/style.css -o ./dist/main.css",
+    "start": "npx tailwindcss -i ./src/style.css -o ./dist/main.css --watch"
+  },
+  "author": "Usman",
+  "license": "ISC",
+  "dependencies": {
+    "alpinejs": "^3.10.3"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.1.8"
+  }
+}
