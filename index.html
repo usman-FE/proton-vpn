@@ -186,7 +186,7 @@
               </ul>
             </nav>
           </div>
-          <!-- CONTACT US & GET PROTON BUTTONS -->
+          <!-- SIGN IN  & CREATE ACCOUNT -->
           <div class="hidden xl:shrink-0 items-center xl:flex md:gap-4">
             <div
               class="relative before:absolute before:inset-0 before:bg-gradient-to-br before:from-[#6d4aff] before:to-[#31d1d0] before:rounded-full before:-m-[2px] hover:before:to-[#4a2dc5] hover:before:from-[#4a2dc5] before:-z-0">
@@ -229,7 +229,8 @@
                   x-transition:leave-start="opacity-50" x-transition:leave-end="opacity-0" style="display: none;">
                 </div>
                 <!-- SIDEMENU CONTAINER -->
-                <div class="flex flex-col fixed top-0 w-[25vw] min-w-[20rem] bottom-0 left-0 bg-white z-30"
+                <div
+                  class="flex flex-col fixed top-0 w-[25vw] min-w-[20rem] bottom-0 left-0 bg-white z-30 overflow-scroll"
                   x-show="isSideMenuOpen" x-transition:enter="transition ease-out duration-300"
                   x-transition:enter-start="-translate-x-full opacity-0"
                   x-transition:enter-end="translate-x-0 opacity-100"
@@ -237,10 +238,10 @@
                   x-transition:leave-start="translate-x-0 opacity-100"
                   x-transition:leave-end="-translate-x-full opacity-0" style="display: none;">
                   <!-- SIDEMENU HEADER & CLOSE BTN -->
-                  <div class="flex justify-between h-8 my-5 mr-5 ml-10">
+                  <div class="flex justify-between h-8 my-5 mx-6">
                     <!-- LOGO -->
                     <div class="flex">
-                      <img src="images/proton-logo-sm.svg" alt="PROTON LOGO"
+                      <img src="images/protonvpn-transparent.svg" alt="PROTON LOGO"
                         class="inline-block w-auto h-auto max-w-full max-h-full">
                     </div>
                     <!-- SIDEMENU CLOSE BTN -->
@@ -257,135 +258,107 @@
                     </button>
                   </div>
                   <!-- SIDEMENU NAVIGATION -->
-                  <nav class="flex-grow overflow-y-auto relative py-5 pr-5 pl-10">
+                  <nav class="relative py-5 px-6">
                     <ul>
                       <!-- SIDEMENU ITEM -->
                       <li>
-                        <a class="flex items-center outline-none py-5 font-semibold text-base text-[#372580] hover:text-[#6d4aff] focus-visible:text-[#6d4aff]"
+                        <a class="flex items-center outline-none py-3 font-semibold text-base text-[#372580] hover:text-[#6d4aff] focus-visible:text-[#6d4aff]"
                           href="#">
-                          Overview
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                            stroke="currentColor" class="w-5 h-5 ml-1 text-[#6d4aff]">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
-                          </svg>
+                          About
                         </a>
                       </li>
                       <!-- SIDEMENU ITEM -->
                       <li>
-                        <a class="flex items-center outline-none py-5 font-semibold text-base text-[#372580] hover:text-[#6d4aff] focus-visible:text-[#6d4aff]"
+                        <a class="flex items-center outline-none py-3 font-semibold text-base text-[#372580] hover:text-[#6d4aff] focus-visible:text-[#6d4aff]"
                           href="#">
                           Features
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                            stroke="currentColor" class="w-5 h-5 ml-1 text-[#6d4aff]">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
-                          </svg>
                         </a>
                       </li>
                       <!-- SIDEMENU ITEM -->
                       <li>
-                        <a class="flex items-center outline-none py-5 font-semibold text-base text-[#372580] hover:text-[#6d4aff] focus-visible:text-[#6d4aff]"
+                        <a class="flex items-center outline-none py-3 font-semibold text-base text-[#372580] hover:text-[#6d4aff] focus-visible:text-[#6d4aff]"
                           href="#">
-                          Plans
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                            stroke="currentColor" class="w-5 h-5 ml-1 text-[#6d4aff]">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
-                          </svg>
+                          Pricing
                         </a>
                       </li>
                       <!-- SIDEMENU ITEM -->
-                      <li x-data="{
-                              isSubmenuOpen: false
-                            }">
-                        <button @click="isSubmenuOpen = true"
-                          class="flex items-center outline-none py-5 font-semibold text-base text-[#372580] hover:text-[#6d4aff] focus-visible:text-[#6d4aff]"
-                          type="button">
-                          Resources
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                            stroke="currentColor" class="w-5 h-5 ml-1 text-[#6d4aff]">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
-                          </svg>
-                        </button>
-                        <!-- SIDEMENU SUBMENU -->
-                        <div class="absolute inset-0 py-5 pr-5 pl-10 bg-white" x-show="isSubmenuOpen"
-                          style="display: none;">
-                          <!-- BREADCRUMB -->
-                          <button @click="isSubmenuOpen = false" type="button"
-                            class="flex flex-wrap items-center mt-5 mb-2 text-sm text-[#372580]">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                              stroke="currentColor" class="w-7 h-7 mr-3">
-                              <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18">
-                              </path>
-                            </svg>
-                            Back / <span class="text-[#9ca3af]">&nbsp;Resources</span>
-                          </button>
-                          <!-- SIDEMENU CONTENT -->
-                          <div class="bg-white">
-                            <!-- RESOURCES SMALLER -->
-                            <div class="space-y-3 py-5">
-                              <!-- SUB ITEMS -->
-                              <a class="block p-4 rounded-lg text-[#372580] hover:text-[#6d4aff] focus-visible:text-[#6d4aff] hover:bg-[#f7f5ff] focus-visible:bg-[#f7f5ff] -ml-4 xl:ml-0"
-                                href="#">
-                                <div class="text-sm font-bold">Frequently asked questions</div>
-                                <p class="mt-1 text-xs">Guides and product support services for businesses.</p>
-                              </a>
-                              <a class="block p-4 rounded-lg text-[#372580] hover:text-[#6d4aff] focus-visible:text-[#6d4aff] hover:bg-[#f7f5ff] focus-visible:bg-[#f7f5ff] -ml-4 xl:ml-0"
-                                href="#">
-                                <div class="text-sm font-bold">Business support</div>
-                                <p class="mt-1 text-xs ">Guides and product support services for businesses.</p>
-                              </a>
-                              <a class="block p-4 rounded-lg text-[#372580] hover:text-[#6d4aff] focus-visible:text-[#6d4aff] hover:bg-[#f7f5ff] focus-visible:bg-[#f7f5ff] -ml-4 xl:ml-0"
-                                href="#">
-                                <div class="text-sm font-bold">Proton guide to IT security</div>
-                                <p class="mt-1 text-xs ">Improve IT security for your business with our guide.</p>
-                              </a>
-                              <a class="block p-4 rounded-lg text-[#372580] hover:text-[#6d4aff] focus-visible:text-[#6d4aff] hover:bg-[#f7f5ff] focus-visible:bg-[#f7f5ff] -ml-4 xl:ml-0"
-                                href="#">
-                                <div class="text-sm font-bold">Proton Insights</div>
-                                <p class="mt-1 text-xs ">Keep your business secure with Proton's monthly newsletter.</p>
-                              </a>
-                            </div>
-                            <!-- DOWNLOAD THIS APP -->
-                            <div class="space-y-3 py-5">
-                              <div class="flex flex-row flex-nowrap items-center -ml-3 xl:ml-0 p-3">
-                                <p class="text-body xl:text-m">Security-first solutions for specific business needs.</p>
-                              </div>
-                              <a class="block p-4 rounded-lg text-[#372580] hover:text-[#6d4aff] focus-visible:text-[#6d4aff] hover:bg-[#efebff] focus-visible:bg-[#efebff] -ml-4 xl:ml-0"
-                                href="#">
-                                <div class="text-base font-bold">GDPR compliance</div>
-                                <p class="mt-1 text-xs">Keep your business secure, private, and GDPR compliant.</p>
-                              </a>
-                              <a class="block p-4 rounded-lg text-[#372580] hover:text-[#6d4aff] focus-visible:text-[#6d4aff] hover:bg-[#efebff] focus-visible:bg-[#efebff] -ml-4 xl:ml-0"
-                                href="#">
-                                <div class="text-base font-bold">Healthcare providers</div>
-                                <p class="mt-1 text-xs">HIPAA-compliant communications for healthcare organizations.</p>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
+                      <li>
+                        <a class="flex items-center outline-none py-3 font-semibold text-base text-[#372580] hover:text-[#6d4aff] focus-visible:text-[#6d4aff]"
+                          href="#">
+                          Blog
+                        </a>
                       </li>
                       <!-- SIDEMENU ITEM -->
                       <li>
-                        <a class="flex items-center outline-none py-5 font-semibold text-base text-[#372580] hover:text-[#6d4aff] focus-visible:text-[#6d4aff]"
+                        <a class="flex items-center outline-none py-3 font-semibold text-base text-[#372580] hover:text-[#6d4aff] focus-visible:text-[#6d4aff]"
                           href="#">
-                          For individuals
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                            stroke="currentColor" class="w-5 h-5 ml-1 text-[#6d4aff]">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
-                          </svg>
+                          Support
                         </a>
                       </li>
                     </ul>
                   </nav>
                   <!-- SIDEMENU LOGIN & SIGNUP BTNs -->
-                  <div class="flex flex-wrap justify-center gap-4 p-5 border-t border-[#e2dbff]">
-                    <a target="_self" href="#"
-                      class="transition-all text-[#6d4aff] inline-block rounded-full font-bold text-sm py-1.5 px-5 border-2 border-[#6d4aff] text-center hover:bg-[#efebff] hover:border-[#4a2dc5] hover:text-[#4a2dc5]">
-                      Sign in
-                    </a>
-                    <a class="transition-all text-white border-2 border-[#6d4aff] bg-[#6d4aff] inline-block rounded-full font-bold text-sm py-1.5 px-5 btn-solid-purple text-center hover:bg-[#4a2dc5] hover:border-[#4a2dc5]"
+                  <div class="flex flex-col justify-center gap-4 p-6">
+                    <div
+                      class="relative before:absolute before:inset-0 before:bg-gradient-to-br before:from-[#6d4aff] before:to-[#31d1d0] before:rounded-full before:-m-[2px] hover:before:to-[#4a2dc5] hover:before:from-[#4a2dc5] before:-z-0">
+                      <a target="_self" href="#"
+                        class=" relative text-[#6d4aff] inline-block rounded-full font-semibold text-base py-2 px-5 text-center hover:bg-[#efebff] hover:border-[#4a2dc5] hover:text-[#4a2dc5] bg-clip-border bg-[#f7f5ff] w-full">
+                        Sign in
+                      </a>
+                    </div>
+                    <a class="transition-all text-white inline-block rounded-full font-semibold text-base py-[10px] px-5 btn-solid-purple text-center bg-gradient-to-br from-[#6d4aff] to-[#31d1d0] hover:to-[#361d9c] hover:from-[#1d8399]"
                       href="#">
-                      Create a free account
+                      Create free account
                     </a>
+                  </div>
+                  <!-- LANGUAGE DROPDOWN -->
+                  <div class="py-4 px-6">
+                    <div class="group h-full flex flex-col items-start relative" x-data="{
+                                          isOpen: false,
+                                          selectedItem: 'English',
+                                          dropdownOptions: [
+                                            'Deutsch',
+                                            'Ελληνικά',
+                                            'Español (España)',
+                                            'Latinoamérica',
+                                            'فارسی',
+                                            'English',
+                                            'Français',
+                                            'Hrvatski',
+                                            'Magyar',
+                                            'Bahasa (Indonesia)',
+                                            'Italiano',
+                                            'Dutch',
+                                            'Polski',
+                                            'Português (Brasil)',
+                                            'Português (Portugal)',
+                                            'Русский',
+                                            'Türkçe',
+                                            'Українська'
+                                          ]
+                                        }">
+                      <span class="font-bold mb-2">Language</span>
+                      <button type="button" @click="isOpen = !isOpen"
+                        class="text-[#111827] w-full flex justify-between items-center bg-transparent outline-none py-2.5 px-3 rounded-md border border-[#d1d5db]">
+                        <span class="" x-text="selectedItem"></span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                          stroke="currentColor" class="w-4 h-4 transition-all" :class="{'rotate-180' : isOpen}">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                        </svg>
+                      </button>
+                      <!-- LANGUAGE -->
+                      <div class="w-full shadow-lg rounded-sm" x-show="isOpen">
+                        <ul class="w-full text-sm z-50">
+                          <input type="text" value="" hidden>
+                          <template x-for="option in dropdownOptions">
+                            <li
+                              class="text-[#111827] block cursor-pointer border border-[#d1d5db] bg-white font-semibold text-right pl-8 pr-5 py-2.5 hover:bg-[#f7f5ff] m-0">
+                              <a href="#" x-text="option"></a>
+                            </li>
+                          </template>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
