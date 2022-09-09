@@ -19,6 +19,7 @@ module.exports = {
 // Gray-300 #d1d5db
 // Gray-50 #f9fafb
 // PURPLE BTN OUTLINE #6d4aff
+// GRADIENT bg-gradient-to-br from-[#6d4aff] to-[#31d1d0]
 
 // CONTAINER
 // container max-w-[120rem] px-8 md:px-12 lg:px-24 mx-auto text-[#494b7a]
