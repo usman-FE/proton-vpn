@@ -943,7 +943,7 @@
     </section>
     <!-- UNIQUE FEATURES SECTION END -->
     <!-- SCREENS SECTION START -->
-    <section class="pt-16 pb-28">
+    <section class="pt-16 pb-28 bg-[#f7f5ff]">
       <div class="container max-w-[120rem] px-4 md:px-12 lg:px-24 mx-auto text-[#494b7a]">
         <div class="flex flex-col lg:flex-row text-center lg:text-left justify-center">
           <div class="flex flex-col px-4 mb-8">
@@ -971,6 +971,709 @@
       </div>
     </section>
     <!-- SCREENS SECTION END -->
+    <!-- TESTIMONIALS SECTION START -->
+    <section class="bg-[#f7f5ff]">
+      <div class="container max-w-[120rem] px-4 md:px-12 lg:px-24 mx-auto text-[#494b7a]">
+        <!-- SECTION HEADING -->
+        <h3 class="text-4xl text-[#372580] mb-12 font-bold text-center flex justify-start flex-col items-center">
+          <span class="text-[#6d4aff] mb-2">
+            <svg class="stroke-current h-[36px] w-[36px]" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M22 6.76847C21.2896 7.07742 20.5739 7.30646 19.784 7.38104C20.5739 6.92294 21.2101 6.15057 21.5229 5.30895C20.733 5.76705 19.9431 6.076 19.0737 6.23047C18.2785 5.46342 17.25 5 16.142 5C14.0056 5 12.2614 6.69389 12.2614 8.77131C12.2614 9.07493 12.2614 9.38388 12.341 9.61825C8.25893 9.61825 5.45982 7.30646 3.56194 5C3.16434 5.538 3.0053 6.23047 3.0053 6.92294C3.0053 8.22798 3.72098 9.38388 4.74944 10.0763C4.11328 10.0018 3.48242 9.8473 3.0053 9.61825C3.0053 9.61825 3.0053 9.61825 3.0053 9.69283C3.0053 11.5412 4.35184 13.0753 6.09598 13.3842C5.7779 13.4588 5.45982 13.5387 5.06222 13.5387C4.82896 13.5387 4.5904 13.5387 4.35184 13.4641C4.82896 15.0036 7.03962 16.772 8.77846 16.772C7.43192 17.7681 6.1808 18.6364 3.67857 18.6364C3.36049 18.6364 3.61496 18.6364 3 18.6364C4.73884 19.7124 6.80106 20 8.9375 20C16.142 20 20.0226 14.2312 20.0226 9.2294C20.0226 9.07493 20.0226 8.92578 20.0226 8.77131C20.8125 8.22798 21.4487 7.54084 22 6.76847Z"
+                stroke-linejoin="round" />
+            </svg>
+          </span>
+          <span>What Our Users Say</span>
+        </h3>
+        <!-- SLIDER SECTION -->
+        <div class="flex relative" x-data="{
+                          init(){
+                              this.sliderIntervel();
+                              this.width <= 768 ? this.numberOfSlides = 1 :
+                              this.width > 768 &amp;&amp; this.width <= 1024 ? this.numberOfSlides = 2 :
+                              this.numberOfSlides = 3;
+                              this.numberOfBullets = Math.ceil(this.numberOfitems / this.numberOfSlides);
+        
+                          },
+                          sliderIntervel: function(){
+                            this.timerInt = setInterval(() => {
+                              this.nextSlide()
+                            }, 7000);
+                          },
+                          timerInt: '',
+                          numberOfBullets: '',
+                          numberOfitems: Array.from(document.querySelector('.slider').children).length,
+                          width: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+                          numberOfSlides: '',
+                          touchstartX: 0,
+                          touchstartY: 0,
+                          touchendX: 0,
+                          touchendY: 0,
+                          currentSlide: 0,
+                          nextSlide(){
+                            if(this.currentSlide === this.numberOfBullets - 1) this.currentSlide = -1;
+                              this.currentSlide++;
+                              $refs.sliderContainer.dataset.id = this.currentSlide + 1;
+                              $refs.sliderContainer.style.transform = `translateX(-${(this.currentSlide) * 100}%)`
+                          },
+                          prevSlide(){
+                            if(this.currentSlide === 0) this.currentSlide = this.numberOfBullets;
+                              $refs.sliderContainer.dataset.id = this.currentSlide;
+                              this.currentSlide--;
+                              $refs.sliderContainer.style.transform = `translateX(-${(this.currentSlide) * 100}%)`
+                          },
+                          handleGesture: function(){
+                            if (this.touchendX + 21 < this.touchstartX) {
+                              if(this.currentSlide === this.numberOfBullets - 1) this.currentSlide = -1;
+                              this.currentSlide++;
+                              $refs.sliderContainer.dataset.id = this.currentSlide + 1;
+                              $refs.sliderContainer.style.transform = `translateX(-${(this.currentSlide) * 100}%)`
+                            }
+                            if (this.touchendX > this.touchstartX + 21) {
+                              if(this.currentSlide === 0) this.currentSlide = this.numberOfBullets;
+                              $refs.sliderContainer.dataset.id = this.currentSlide;
+                              this.currentSlide--;
+                              $refs.sliderContainer.style.transform = `translateX(-${(this.currentSlide) * 100}%)`
+                            }
+                          }    
+                        }">
+          <!-- PREV SLIDE BUTTON -->
+          <button @click="
+            clearInterval(timerInt);
+            sliderIntervel();
+            prevSlide();
+          " type="button" class="outline-none border-none bg-transparent text-[#c5b7ff] w-[5%]">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-8 h-8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+          </button>
+          <!-- SECTION SLIDER -->
+          <div class="overflow-hidden relative w-[90%] mx-auto">
+            <!-- SLIDES PARENT CONTAINER -->
+            <div @mousedown.passive="
+                            touchstartY = $event.screenY;
+                            touchstartX = $event.screenX;
+                          " @touchstart.passive="
+                            touchstartX = $event.changedTouches[0].screenX;
+                            touchstartY = $event.changedTouches[0].screenY;
+                          " @mouseup.passive="
+                            touchendX = $event.screenX;
+                            touchendY = $event.screenY;
+                            clearInterval(timerInt);
+                            sliderIntervel();
+                            handleGesture();
+                          " @touchend.passive="
+                            touchendX = $event.changedTouches[0].screenX;
+                            touchendY = $event.changedTouches[0].screenY;
+                            clearInterval(timerInt);
+                            sliderIntervel();
+                            handleGesture();
+                          ">
+              <!-- SLIDES -->
+              <div data-id="2" class="flex items-start slider transition-all duration-700 select-none"
+                x-ref="sliderContainer">
+                <!-- SLIDE -->
+                <div class="w-full h-auto mb-8 md:w-1/2 xl:w-1/3 shrink-0 px-4">
+                  <article class="text-center p-6 h-full rounded-2xl min-h-[22rem] bg-white shadow-lg relative">
+                    <div class="w-full mb-4">
+                      <a href="#" class="absolute inset-0"></a>
+                      <blockquote class="select-none z-10 relative">
+                        <header class="text-xs flex flex-wrap">
+                          <div class="w-3/12 text-left">
+                            <img src="images/U1.jpg" alt="User Avatar" class="rounded-full h-12 w-12">
+                          </div>
+                          <div class="w-9/12 text-left text-[#372580] flex flex-col">
+                            <cite class="text-xl font-bold block overflow-hidden whitespace-nowrap text-ellipsis">Martin
+                              Bishop</cite>
+                            <time class="text-lg">May 22, 2020</time>
+                          </div>
+                        </header>
+                        <p class="py-4 px-6 block text-left mb-2 overflow-hidden text-ellipsis">
+                          Absolutely love your service and your ethics
+                          <a target="_blank" href="#"
+                            class="text-[#6d4aff] hover:underline transition-all">@ProtonVPN</a>.
+                          Keep doing what you're doing and you've got a
+                          customer for life!!
+                          <a target="_blank" href="#" class="text-[#6d4aff] hover:underline transition-all">#privacy</a>
+                          <a target="_blank" href="#" class="text-[#6d4aff] hover:underline transition-all">#vpn</a>
+                          <a target="_blank" href="#" class="text-[#6d4aff] hover:underline transition-all">#freedom</a>
+                          <a target="_blank" href="#"
+                            class="text-[#6d4aff] hover:underline transition-all">#internet</a>
+                        </p>
+                      </blockquote>
+                      <footer class="flex absolute left-8 right-8 bottom-4 z-30 flex-wrap justify-between">
+                        <div class=" text-center">
+                          <a href="#" target="_blank" class="text-[#6d4aff]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-5 h-5">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+                            </svg>
+
+                          </a>
+                        </div>
+                        <div class=" text-center">
+                          <a href="#" target="_blank" class="text-[#6d4aff]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-5 h-5">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                            </svg>
+
+                          </a>
+                        </div>
+                        <div class="text-center">
+                          <a href="#" target="_blank" class="text-[#6d4aff]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-5 h-5">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                            </svg>
+                          </a>
+                        </div>
+                      </footer>
+                    </div>
+                  </article>
+                </div>
+                <!-- SLIDE -->
+                <div class="w-full h-auto mb-8 md:w-1/2 xl:w-1/3 shrink-0 px-4">
+                  <article class="text-center p-6 h-full rounded-2xl min-h-[22rem] bg-white shadow-lg relative">
+                    <div class="w-full mb-4">
+                      <a href="#" class="absolute inset-0"></a>
+                      <blockquote class="select-none z-10 relative">
+                        <header class="text-xs flex flex-wrap">
+                          <div class="w-3/12 text-left">
+                            <img src="images/U2.jpg" alt="User Avatar" class="rounded-full h-12 w-12">
+                          </div>
+                          <div class="w-9/12 text-left text-[#372580] flex flex-col">
+                            <cite
+                              class="text-xl font-bold block overflow-hidden whitespace-nowrap text-ellipsis">🎗️Raymond
+                              Johansen 🍀</cite>
+                            <time class="text-lg">May 20, 2020</time>
+                          </div>
+                        </header>
+                        <p class="py-4 px-6 block text-left mb-2 overflow-hidden text-ellipsis">
+                          Wow! My telecom, Telenor, just gifted a double up for 3 months to 150/150 Mb/s. Tips hat, but
+                          even more impressive
+                          running the speedtest while using
+                          <a target="_blank" href="#"
+                            class="text-[#6d4aff] hover:underline transition-all">@ProtonVPN</a>.
+                          I got 125/100 Mb/s!!!! That is 12 times the speed I got from previous service. h/t
+                          <a target="_blank" href="#"
+                            class="text-[#6d4aff] hover:underline transition-all">@ProtonPrivacy</a>
+                          <a target="_blank" href="#"
+                            class="text-[#6d4aff] hover:underline transition-all">https://t.co/aNc2neZSU1</a>
+                          <a target="_blank" href="#"
+                            class="text-[#6d4aff] hover:underline transition-all">pic.twitter.com/cO2DprdaRI</a>
+                        </p>
+                      </blockquote>
+                      <footer class="flex absolute left-8 right-8 bottom-4 z-30 flex-wrap justify-between">
+                        <div class=" text-center">
+                          <a href="#" target="_blank" class="text-[#6d4aff]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-5 h-5">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+                            </svg>
+
+                          </a>
+                        </div>
+                        <div class=" text-center">
+                          <a href="#" target="_blank" class="text-[#6d4aff]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-5 h-5">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                            </svg>
+
+                          </a>
+                        </div>
+                        <div class="text-center">
+                          <a href="#" target="_blank" class="text-[#6d4aff]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-5 h-5">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                            </svg>
+                          </a>
+                        </div>
+                      </footer>
+                    </div>
+                  </article>
+                </div>
+                <!-- SLIDE -->
+                <div class="w-full h-auto mb-8 md:w-1/2 xl:w-1/3 shrink-0 px-4">
+                  <article class="text-center p-6 h-full rounded-2xl min-h-[22rem] bg-white shadow-lg relative">
+                    <div class="w-full mb-4">
+                      <a href="#" class="absolute inset-0"></a>
+                      <blockquote class="select-none z-10 relative">
+                        <header class="text-xs flex flex-wrap">
+                          <div class="w-3/12 text-left">
+                            <img src="images/U3.jpg" alt="User Avatar" class="rounded-full h-12 w-12">
+                          </div>
+                          <div class="w-9/12 text-left text-[#372580] flex flex-col">
+                            <cite class="text-xl font-bold block overflow-hidden whitespace-nowrap text-ellipsis">Rob G.
+                              @rgx@muensterland.social</cite>
+                            <time class="text-lg">May 15, 2022</time>
+                          </div>
+                        </header>
+                        <p class="py-4 px-6 block text-left mb-2 overflow-hidden text-ellipsis">
+                          <a target="_blank" href="#"
+                            class="text-[#6d4aff] hover:underline transition-all">@ProtonVPN</a>.
+                          Wanted to thank you for the outstanding service your company offers - I have used vpn service
+                          over the years, and seen
+                          many.
+                          <br>
+                          <br>
+                          The speed and reliability of your client software surprised me, instantly - it's World Class,
+                          and better.
+                          <br>
+                          <br>
+                          1/2
+                        </p>
+                      </blockquote>
+                      <footer class="flex absolute left-8 right-8 bottom-4 z-30 flex-wrap justify-between">
+                        <div class=" text-center">
+                          <a href="#" target="_blank" class="text-[#6d4aff]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-5 h-5">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+                            </svg>
+
+                          </a>
+                        </div>
+                        <div class=" text-center">
+                          <a href="#" target="_blank" class="text-[#6d4aff]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-5 h-5">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                            </svg>
+
+                          </a>
+                        </div>
+                        <div class="text-center">
+                          <a href="#" target="_blank" class="text-[#6d4aff]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-5 h-5">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                            </svg>
+                          </a>
+                        </div>
+                      </footer>
+                    </div>
+                  </article>
+                </div>
+                <!-- SLIDE -->
+                <div class="w-full h-auto mb-8 md:w-1/2 xl:w-1/3 shrink-0 px-4">
+                  <article class="text-center p-6 h-full rounded-2xl min-h-[22rem] bg-white shadow-lg relative">
+                    <div class="w-full mb-4">
+                      <a href="#" class="absolute inset-0"></a>
+                      <blockquote class="select-none z-10 relative">
+                        <header class="text-xs flex flex-wrap">
+                          <div class="w-3/12 text-left">
+                            <img src="images/U1.jpg" alt="User Avatar" class="rounded-full h-12 w-12">
+                          </div>
+                          <div class="w-9/12 text-left text-[#372580] flex flex-col">
+                            <cite class="text-xl font-bold block overflow-hidden whitespace-nowrap text-ellipsis">Martin
+                              Bishop</cite>
+                            <time class="text-lg">May 22, 2020</time>
+                          </div>
+                        </header>
+                        <p class="py-4 px-6 block text-left mb-2 overflow-hidden text-ellipsis">
+                          Absolutely love your service and your ethics
+                          <a target="_blank" href="#"
+                            class="text-[#6d4aff] hover:underline transition-all">@ProtonVPN</a>.
+                          Keep doing what you're doing and you've got a
+                          customer for life!!
+                          <a target="_blank" href="#" class="text-[#6d4aff] hover:underline transition-all">#privacy</a>
+                          <a target="_blank" href="#" class="text-[#6d4aff] hover:underline transition-all">#vpn</a>
+                          <a target="_blank" href="#" class="text-[#6d4aff] hover:underline transition-all">#freedom</a>
+                          <a target="_blank" href="#"
+                            class="text-[#6d4aff] hover:underline transition-all">#internet</a>
+                        </p>
+                      </blockquote>
+                      <footer class="flex absolute left-8 right-8 bottom-4 z-30 flex-wrap justify-between">
+                        <div class=" text-center">
+                          <a href="#" target="_blank" class="text-[#6d4aff]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-5 h-5">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+                            </svg>
+
+                          </a>
+                        </div>
+                        <div class=" text-center">
+                          <a href="#" target="_blank" class="text-[#6d4aff]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-5 h-5">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                            </svg>
+
+                          </a>
+                        </div>
+                        <div class="text-center">
+                          <a href="#" target="_blank" class="text-[#6d4aff]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-5 h-5">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                            </svg>
+                          </a>
+                        </div>
+                      </footer>
+                    </div>
+                  </article>
+                </div>
+                <!-- SLIDE -->
+                <div class="w-full h-auto mb-8 md:w-1/2 xl:w-1/3 shrink-0 px-4">
+                  <article class="text-center p-6 h-full rounded-2xl min-h-[22rem] bg-white shadow-lg relative">
+                    <div class="w-full mb-4">
+                      <a href="#" class="absolute inset-0"></a>
+                      <blockquote class="select-none z-10 relative">
+                        <header class="text-xs flex flex-wrap">
+                          <div class="w-3/12 text-left">
+                            <img src="images/U2.jpg" alt="User Avatar" class="rounded-full h-12 w-12">
+                          </div>
+                          <div class="w-9/12 text-left text-[#372580] flex flex-col">
+                            <cite
+                              class="text-xl font-bold block overflow-hidden whitespace-nowrap text-ellipsis">🎗️Raymond
+                              Johansen 🍀</cite>
+                            <time class="text-lg">May 20, 2020</time>
+                          </div>
+                        </header>
+                        <p class="py-4 px-6 block text-left mb-2 overflow-hidden text-ellipsis">
+                          Wow! My telecom, Telenor, just gifted a double up for 3 months to 150/150 Mb/s. Tips hat, but
+                          even more impressive
+                          running the speedtest while using
+                          <a target="_blank" href="#"
+                            class="text-[#6d4aff] hover:underline transition-all">@ProtonVPN</a>.
+                          I got 125/100 Mb/s!!!! That is 12 times the speed I got from previous service. h/t
+                          <a target="_blank" href="#"
+                            class="text-[#6d4aff] hover:underline transition-all">@ProtonPrivacy</a>
+                          <a target="_blank" href="#"
+                            class="text-[#6d4aff] hover:underline transition-all">https://t.co/aNc2neZSU1</a>
+                          <a target="_blank" href="#"
+                            class="text-[#6d4aff] hover:underline transition-all">pic.twitter.com/cO2DprdaRI</a>
+                        </p>
+                      </blockquote>
+                      <footer class="flex absolute left-8 right-8 bottom-4 z-30 flex-wrap justify-between">
+                        <div class=" text-center">
+                          <a href="#" target="_blank" class="text-[#6d4aff]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-5 h-5">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+                            </svg>
+
+                          </a>
+                        </div>
+                        <div class=" text-center">
+                          <a href="#" target="_blank" class="text-[#6d4aff]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-5 h-5">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                            </svg>
+
+                          </a>
+                        </div>
+                        <div class="text-center">
+                          <a href="#" target="_blank" class="text-[#6d4aff]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-5 h-5">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                            </svg>
+                          </a>
+                        </div>
+                      </footer>
+                    </div>
+                  </article>
+                </div>
+                <!-- SLIDE -->
+                <div class="w-full h-auto mb-8 md:w-1/2 xl:w-1/3 shrink-0 px-4">
+                  <article class="text-center p-6 h-full rounded-2xl min-h-[22rem] bg-white shadow-lg relative">
+                    <div class="w-full mb-4">
+                      <a href="#" class="absolute inset-0"></a>
+                      <blockquote class="select-none z-10 relative">
+                        <header class="text-xs flex flex-wrap">
+                          <div class="w-3/12 text-left">
+                            <img src="images/U3.jpg" alt="User Avatar" class="rounded-full h-12 w-12">
+                          </div>
+                          <div class="w-9/12 text-left text-[#372580] flex flex-col">
+                            <cite class="text-xl font-bold block overflow-hidden whitespace-nowrap text-ellipsis">Rob G.
+                              @rgx@muensterland.social</cite>
+                            <time class="text-lg">May 15, 2022</time>
+                          </div>
+                        </header>
+                        <p class="py-4 px-6 block text-left mb-2 overflow-hidden text-ellipsis">
+                          <a target="_blank" href="#"
+                            class="text-[#6d4aff] hover:underline transition-all">@ProtonVPN</a>.
+                          Wanted to thank you for the outstanding service your company offers - I have used vpn service
+                          over the years, and seen
+                          many.
+                          <br>
+                          <br>
+                          The speed and reliability of your client software surprised me, instantly - it's World Class,
+                          and better.
+                          <br>
+                          <br>
+                          1/2
+                        </p>
+                      </blockquote>
+                      <footer class="flex absolute left-8 right-8 bottom-4 z-30 flex-wrap justify-between">
+                        <div class=" text-center">
+                          <a href="#" target="_blank" class="text-[#6d4aff]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-5 h-5">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+                            </svg>
+
+                          </a>
+                        </div>
+                        <div class=" text-center">
+                          <a href="#" target="_blank" class="text-[#6d4aff]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-5 h-5">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                            </svg>
+
+                          </a>
+                        </div>
+                        <div class="text-center">
+                          <a href="#" target="_blank" class="text-[#6d4aff]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-5 h-5">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                            </svg>
+                          </a>
+                        </div>
+                      </footer>
+                    </div>
+                  </article>
+                </div>
+                <!-- SLIDE -->
+                <div class="w-full h-auto mb-8 md:w-1/2 xl:w-1/3 shrink-0 px-4">
+                  <article class="text-center p-6 h-full rounded-2xl min-h-[22rem] bg-white shadow-lg relative">
+                    <div class="w-full mb-4">
+                      <a href="#" class="absolute inset-0"></a>
+                      <blockquote class="select-none z-10 relative">
+                        <header class="text-xs flex flex-wrap">
+                          <div class="w-3/12 text-left">
+                            <img src="images/U1.jpg" alt="User Avatar" class="rounded-full h-12 w-12">
+                          </div>
+                          <div class="w-9/12 text-left text-[#372580] flex flex-col">
+                            <cite class="text-xl font-bold block overflow-hidden whitespace-nowrap text-ellipsis">Martin
+                              Bishop</cite>
+                            <time class="text-lg">May 22, 2020</time>
+                          </div>
+                        </header>
+                        <p class="py-4 px-6 block text-left mb-2 overflow-hidden text-ellipsis">
+                          Absolutely love your service and your ethics
+                          <a target="_blank" href="#"
+                            class="text-[#6d4aff] hover:underline transition-all">@ProtonVPN</a>.
+                          Keep doing what you're doing and you've got a
+                          customer for life!!
+                          <a target="_blank" href="#" class="text-[#6d4aff] hover:underline transition-all">#privacy</a>
+                          <a target="_blank" href="#" class="text-[#6d4aff] hover:underline transition-all">#vpn</a>
+                          <a target="_blank" href="#" class="text-[#6d4aff] hover:underline transition-all">#freedom</a>
+                          <a target="_blank" href="#"
+                            class="text-[#6d4aff] hover:underline transition-all">#internet</a>
+                        </p>
+                      </blockquote>
+                      <footer class="flex absolute left-8 right-8 bottom-4 z-30 flex-wrap justify-between">
+                        <div class=" text-center">
+                          <a href="#" target="_blank" class="text-[#6d4aff]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-5 h-5">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+                            </svg>
+
+                          </a>
+                        </div>
+                        <div class=" text-center">
+                          <a href="#" target="_blank" class="text-[#6d4aff]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-5 h-5">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                            </svg>
+
+                          </a>
+                        </div>
+                        <div class="text-center">
+                          <a href="#" target="_blank" class="text-[#6d4aff]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-5 h-5">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                            </svg>
+                          </a>
+                        </div>
+                      </footer>
+                    </div>
+                  </article>
+                </div>
+                <!-- SLIDE -->
+                <div class="w-full h-auto mb-8 md:w-1/2 xl:w-1/3 shrink-0 px-4">
+                  <article class="text-center p-6 h-full rounded-2xl min-h-[22rem] bg-white shadow-lg relative">
+                    <div class="w-full mb-4">
+                      <a href="#" class="absolute inset-0"></a>
+                      <blockquote class="select-none z-10 relative">
+                        <header class="text-xs flex flex-wrap">
+                          <div class="w-3/12 text-left">
+                            <img src="images/U2.jpg" alt="User Avatar" class="rounded-full h-12 w-12">
+                          </div>
+                          <div class="w-9/12 text-left text-[#372580] flex flex-col">
+                            <cite
+                              class="text-xl font-bold block overflow-hidden whitespace-nowrap text-ellipsis">🎗️Raymond
+                              Johansen 🍀</cite>
+                            <time class="text-lg">May 20, 2020</time>
+                          </div>
+                        </header>
+                        <p class="py-4 px-6 block text-left mb-2 overflow-hidden text-ellipsis">
+                          Wow! My telecom, Telenor, just gifted a double up for 3 months to 150/150 Mb/s. Tips hat, but
+                          even more impressive
+                          running the speedtest while using
+                          <a target="_blank" href="#"
+                            class="text-[#6d4aff] hover:underline transition-all">@ProtonVPN</a>.
+                          I got 125/100 Mb/s!!!! That is 12 times the speed I got from previous service. h/t
+                          <a target="_blank" href="#"
+                            class="text-[#6d4aff] hover:underline transition-all">@ProtonPrivacy</a>
+                          <a target="_blank" href="#"
+                            class="text-[#6d4aff] hover:underline transition-all">https://t.co/aNc2neZSU1</a>
+                          <a target="_blank" href="#"
+                            class="text-[#6d4aff] hover:underline transition-all">pic.twitter.com/cO2DprdaRI</a>
+                        </p>
+                      </blockquote>
+                      <footer class="flex absolute left-8 right-8 bottom-4 z-30 flex-wrap justify-between">
+                        <div class=" text-center">
+                          <a href="#" target="_blank" class="text-[#6d4aff]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-5 h-5">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+                            </svg>
+
+                          </a>
+                        </div>
+                        <div class=" text-center">
+                          <a href="#" target="_blank" class="text-[#6d4aff]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-5 h-5">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                            </svg>
+
+                          </a>
+                        </div>
+                        <div class="text-center">
+                          <a href="#" target="_blank" class="text-[#6d4aff]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-5 h-5">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                            </svg>
+                          </a>
+                        </div>
+                      </footer>
+                    </div>
+                  </article>
+                </div>
+                <!-- SLIDE -->
+                <div class="w-full h-auto mb-8 md:w-1/2 xl:w-1/3 shrink-0 px-4">
+                  <article class="text-center p-6 h-full rounded-2xl min-h-[22rem] bg-white shadow-lg relative">
+                    <div class="w-full mb-4">
+                      <a href="#" class="absolute inset-0"></a>
+                      <blockquote class="select-none z-10 relative">
+                        <header class="text-xs flex flex-wrap">
+                          <div class="w-3/12 text-left">
+                            <img src="images/U3.jpg" alt="User Avatar" class="rounded-full h-12 w-12">
+                          </div>
+                          <div class="w-9/12 text-left text-[#372580] flex flex-col">
+                            <cite class="text-xl font-bold block overflow-hidden whitespace-nowrap text-ellipsis">Rob G.
+                              @rgx@muensterland.social</cite>
+                            <time class="text-lg">May 15, 2022</time>
+                          </div>
+                        </header>
+                        <p class="py-4 px-6 block text-left mb-2 overflow-hidden text-ellipsis">
+                          <a target="_blank" href="#"
+                            class="text-[#6d4aff] hover:underline transition-all">@ProtonVPN</a>.
+                          Wanted to thank you for the outstanding service your company offers - I have used vpn service
+                          over the years, and seen
+                          many.
+                          <br>
+                          <br>
+                          The speed and reliability of your client software surprised me, instantly - it's World Class,
+                          and better.
+                          <br>
+                          <br>
+                          1/2
+                        </p>
+                      </blockquote>
+                      <footer class="flex absolute left-8 right-8 bottom-4 z-30 flex-wrap justify-between">
+                        <div class=" text-center">
+                          <a href="#" target="_blank" class="text-[#6d4aff]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-5 h-5">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+                            </svg>
+
+                          </a>
+                        </div>
+                        <div class=" text-center">
+                          <a href="#" target="_blank" class="text-[#6d4aff]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-5 h-5">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                            </svg>
+
+                          </a>
+                        </div>
+                        <div class="text-center">
+                          <a href="#" target="_blank" class="text-[#6d4aff]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                              stroke="currentColor" class="w-5 h-5">
+                              <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                            </svg>
+                          </a>
+                        </div>
+                      </footer>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- NEXT SLIDE BUTTON -->
+          <button @click="
+                      clearInterval(timerInt);
+                      sliderIntervel();
+                      nextSlide()
+                    " type="button" class="outline-none border-none bg-transparent text-[#c5b7ff] w-[5%]">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-8 h-8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- TESTIMONIALS SECTION END -->
   </main>
 </body>
 
