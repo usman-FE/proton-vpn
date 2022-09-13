@@ -773,6 +773,10 @@ video {
   margin-top: 0.75rem;
 }
 
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
 .block {
   display: block;
 }
@@ -1159,6 +1163,14 @@ video {
   border-top-width: 2px;
 }
 
+.border-l {
+  border-left-width: 1px;
+}
+
+.border-r {
+  border-right-width: 1px;
+}
+
 .border-dashed {
   border-style: dashed;
 }
@@ -1180,6 +1192,11 @@ video {
 .border-\[\#e2dbff\] {
   --tw-border-opacity: 1;
   border-color: rgb(226 219 255 / var(--tw-border-opacity));
+}
+
+.border-\[\#e6e6e6\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(230 230 230 / var(--tw-border-opacity));
 }
 
 .bg-\[\#f7f5ff\] {
@@ -1359,6 +1376,11 @@ video {
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 .pl-8 {
@@ -1850,6 +1872,15 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.group:hover .group-hover\:underline {
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+
+.group:hover .group-hover\:opacity-75 {
+  opacity: 0.75;
+}
+
 @media (min-width: 640px) {
   .sm\:mb-12 {
     margin-bottom: 3rem;
@@ -2163,12 +2194,20 @@ video {
     grid-template-columns: repeat(12, minmax(0, 1fr));
   }
 
+  .xl\:flex-row {
+    flex-direction: row;
+  }
+
   .xl\:justify-end {
     justify-content: flex-end;
   }
 
   .xl\:gap-8 {
     gap: 2rem;
+  }
+
+  .xl\:border-r {
+    border-right-width: 1px;
   }
 
   .xl\:object-cover {
